@@ -1,0 +1,4 @@
+steps:
+  - label: "Deployed"
+    command: |
+      echo "DEPLOYED"

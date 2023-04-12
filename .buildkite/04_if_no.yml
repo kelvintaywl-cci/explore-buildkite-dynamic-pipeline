@@ -1,0 +1,4 @@
+steps:
+  - label: "Skipped Deployment"
+    command: |
+      echo "SKIPPED"
