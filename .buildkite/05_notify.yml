@@ -1,0 +1,4 @@
+steps:
+  - label: "Notify"
+    command: |
+      echo "Slack notification sent!"
