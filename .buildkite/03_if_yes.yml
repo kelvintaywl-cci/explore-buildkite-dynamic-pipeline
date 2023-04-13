@@ -2,3 +2,20 @@ steps:
   - label: "Deployed"
     command: |
       echo "DEPLOYED"
+  - input: "Notify?"
+    key: "notify-check"
+    fields:
+      - select: "decision"
+        key: "notify-decision"
+        options:
+          - label: "Yes"
+            value: "y"
+          - label: "No"
+            value: "n"
+  - label: "Continue"
+    depends_on: "notify-check"
+    command: |
+      set -xeuo pipefail
+      if [ $(buildkite-agent meta-data get notify-decision) == "y" ]; then
+        buildkite-agent pipeline upload .buildkite/05_notify.yml
+      fi
