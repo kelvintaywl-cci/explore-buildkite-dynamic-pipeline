@@ -1,8 +1,19 @@
 steps:
-  - input: "Deploy?"
+  - label: ":javascript: lint"
+    key: "lint"
+    command: |
+      echo "mock lint"
+  - label: ":javascript: unit tests"
+    key: "unit-tests"
+    command: |
+      echo "mock tests"
+  - input: ":heroku: Deploy?"
     key: "deploy-check"
+    depends_on:
+      - "lint"
+      - "unit-tests"
     fields:
-      - select: "decision"
+      - select: "Deploy Javascript app to Heroku?"
         key: "deploy-decision"
         options:
           - label: "Yes"

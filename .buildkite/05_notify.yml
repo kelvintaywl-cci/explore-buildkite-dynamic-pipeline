@@ -1,4 +1,4 @@
 steps:
-  - label: "Notify"
+  - label: ":slack: Notify"
     command: |
       echo "Slack notification sent!"

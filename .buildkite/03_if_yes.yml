@@ -1,11 +1,18 @@
 steps:
-  - label: "Deployed"
+  - label: ":heroku: Deployed"
+    key: "deployed"
     command: |
       echo "DEPLOYED"
-  - input: "Notify?"
+  - label: ":jira: Update JIRA"
+    key: "update-jira"
+    command: |
+      echo "JIRA updated"
+  - input: ":slack: Notify?"
     key: "notify-check"
+    depends_on:
+      - "deployed"
     fields:
-      - select: "decision"
+      - select: "Notify team on Slack channel?"
         key: "notify-decision"
         options:
           - label: "Yes"

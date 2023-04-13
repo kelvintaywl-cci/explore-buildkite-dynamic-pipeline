@@ -1,4 +1,4 @@
 steps:
-  - label: "Skipped Deployment"
+  - label: ":buildkite: Skipped Deployment"
     command: |
       echo "SKIPPED"
