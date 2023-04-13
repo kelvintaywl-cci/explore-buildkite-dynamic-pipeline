@@ -2,7 +2,7 @@ steps:
   - label: ":heroku: Deployed"
     key: "deployed"
     command: |
-      echo "DEPLOYED"
+      echo "DEPLOYED #${BUILDKITE_BUILD_NUMBER}"
   - label: ":jira: Update JIRA"
     key: "update-jira"
     command: |
